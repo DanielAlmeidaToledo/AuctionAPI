@@ -6,11 +6,14 @@ namespace AuctionProject.API.UseCases.Auctions.GetCurrent
 {
     public class GetCurrentAuctionUseCase
     {
-        public Auction Execute()
+        public Auction? Execute()
         {
             var repository = new AuctionDbContext();
 
-            return repository.Auctions.First();
+            return repository
+                .Auctions
+                .Include(auction => auction.Items)
+                .First();
         }
     }
 }

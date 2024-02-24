@@ -1,4 +1,5 @@
-﻿using AuctionProject.API.UseCases.Auctions.GetCurrent;
+﻿using AuctionProject.API.Entities;
+using AuctionProject.API.UseCases.Auctions.GetCurrent;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuctionProject.API.Controllers
@@ -8,6 +9,8 @@ namespace AuctionProject.API.Controllers
     public class AuctionController : ControllerBase
     {
         [HttpGet]
+        [ProducesResponseType(typeof(Auction), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult GetCurrentAuction()
         {
             var useCase = new GetCurrentAuctionUseCase();
