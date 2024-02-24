@@ -6,7 +6,9 @@ namespace AuctionProject.API.Repositories
     public class AuctionDbContext : DbContext
     {
         public DbSet<Auction> Auctions { get; set; }
-
-        /*TODO - CONFIGURAR DB*/
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite(@"Data Source=D:\Backend\DBs\AuctionDB.db");
+        }
     }
 }

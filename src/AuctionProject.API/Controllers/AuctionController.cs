@@ -14,6 +14,9 @@ namespace AuctionProject.API.Controllers
 
             var result = useCase.Execute();
 
+            if (result is null)
+                return NoContent();
+
             return Ok(result);
         }
     }

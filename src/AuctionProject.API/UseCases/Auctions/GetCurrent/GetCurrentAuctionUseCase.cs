@@ -1,5 +1,6 @@
 ﻿using AuctionProject.API.Entities;
 using AuctionProject.API.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuctionProject.API.UseCases.Auctions.GetCurrent
 {
